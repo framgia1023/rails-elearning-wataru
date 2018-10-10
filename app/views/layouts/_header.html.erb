@@ -14,7 +14,7 @@
         <li class="nav-item dropdown">
 
 
-          <%= link_to current_user.name, "#", class: "nav-link dropdown-toggle",
+          <%= link_to current_user.name, user_path(current_user), class: "nav-link dropdown-toggle",
           id: "navbarDropdownMenuLink",
           role: "button",
           data: {toggle: "dropdown"},
@@ -22,7 +22,7 @@
           %>
 
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <%= link_to "Profile", "#", class: "dropdown-item" %>
+            <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Setting", "#", class: "dropdown-item" %>
             <%= link_to "Logout", session_path(current_user), method: :delete, class: "dropdown-item" %>
           </div>
