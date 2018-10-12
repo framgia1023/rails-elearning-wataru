@@ -11,26 +11,36 @@
 							<%= @user.name %>
 						</div>
 
-						<%=  form_for "#" do |f| %>
+<!-- 						<%=  form_for "#" do |f| %>
 						<div class="form-group">
 							<%= f.submit "follow" ,class: "btn btn-primary btn-block" %>
 						</div>
 						<% end %>
-						
-
+ -->						
+						<div class="text-center">
+							<% unless current_user?(@user) %>
+								<div id="follow_form">
+									<% if current_user.following?(@user) %>
+										<%= render "unfollow", user: @user %>
+									<% else %>
+										<%= render "follow", user: @user  %>
+									<% end %>
+								</div>
+							<% end %>
+						</div>
 						<div class="text-center">
 							<div class="row">
 								<div class="col-lg-6">
 									<h5>Following</h5>
 										<h3><span class="badge badge-primary" id="following">
-											<%#= @user.following.count %>
+											<%= @user.following.count %>
 											</span>
 										</h3>
 								</div>
 								<div class="col-lg-6">
 									<h5>Followers</h5>
 										<h3><span class="badge badge-primary" id="followers">
-											<%#= @user.followers.count %>
+											<%= @user.followers.count %>
 											</span>
 										</h3>
 								</div>							
@@ -42,7 +52,7 @@
 								<div class="col-lg-6 container">
 									<h5>Words Learned</h5>
 										<h3><span class="badge badge-primary" id="following">
-											<%#= @user.following.count %>
+											<%#= @user.words_learned.count %>
 											</span>
 										</h3>
 								</div>
