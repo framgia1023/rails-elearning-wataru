@@ -39,10 +39,6 @@ class User < ApplicationRecord
 	
 	def following?(other_user)
 		following.include?(other_user)
-	end			
-
-	def feed
-		following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
-	end	
+	end				
 
 end
