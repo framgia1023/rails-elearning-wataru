@@ -1,5 +1,12 @@
 @import "bootstrap";
 
+
+.main-container {
+ 	background-image: assets-path("wilmer-martinez.jpg");
+ 	background-size:cover;
+}
+
+
 .paginate{
 	nav{
 		display: inline-block;

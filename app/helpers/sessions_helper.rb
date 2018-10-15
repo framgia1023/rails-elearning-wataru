@@ -16,4 +16,5 @@ module SessionsHelper
 		session.delete(:user_id)
 		flash[:danger] = "Successfully Logged out!"
 	end
+
 end
