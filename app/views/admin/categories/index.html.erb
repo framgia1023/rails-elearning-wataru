@@ -1,0 +1,44 @@
+<div class="row">
+	<div class="col-lg-6 offset-1">
+		<h1>Admin/Categories</h1>
+	</div>
+	<div class="col-lg-2 offset-2 mx-5">
+		<%= link_to "Add Category", new_admin_category_path, class: "btn btn-outline-primary btn-block" %>
+	</div>
+</div>
+	
+
+<div class="row">	
+	<table class="table table-striped mx-5">
+	  <thead>
+	  	<tr>
+	      <th scope="col">Title</th>
+	      <th scope="col">Description</th>
+	      <th scope="col">Word</th>
+	      <th scope="col">Action</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+		<% @categories.each do |category| %>
+	    <tr>
+	      <th scope="row"><%= category.title %></th>
+	      <td><%=  category.description %></td>
+	      <td><%#= learned.count %></td>
+	      <td>
+	      	<%= link_to "Edit", edit_admin_category_path(category.id), class: "btn btn-outline-success btn-block" %>
+			<%= link_to "Remove", admin_category_path(category.id), method: :delete, class: "btn btn-outline-danger btn-block" %>
+	      </td>
+	    </tr>
+	  	<% end %>
+	  </tbody>
+	</table>
+
+
+
+
+
+
+	<div class="container paginate text-center">
+		<%= will_paginate %>
+	</div>
+</div>
