@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-lg-6 mx-5">
+		<h1>Categories</h1>
+	</div>
+	
+
+	<% @categories.each do |category| %>
+		<div class="jumbotron col-lg-5 mx-5">
+		  <h1><%= category.title %></h1>
+		  <p><%= category.description %></p>
+
+		  <%= link_to "Learn", "#", class: "btn btn-primary btn-lg float-right" %>
+
+		</div>
+	<% end %>
+	<div class="container paginate text-center">
+		<%= will_paginate %>
+	</div>
+</div>

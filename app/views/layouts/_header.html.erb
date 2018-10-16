@@ -12,13 +12,12 @@
       
       <% if logged_in? %> 
 
-        <li>
-          <%= link_to "Category", admin_categories_path, class: "nav-link"%>
+        <li class="nav-item">
+          <%= link_to "Categories", categories_path, class: "nav-link" %>
         </li>
 
+
         <li class="nav-item dropdown">
-
-
           <%= link_to current_user.name, user_path(current_user), class: "nav-link dropdown-toggle",
           id: "navbarDropdownMenuLink",
           role: "button",
@@ -30,8 +29,14 @@
             <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Setting", edit_user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Logout", session_path(current_user), method: :delete, class: "dropdown-item" %>
+          
+            <%  if current_user.admin? %>
+              <%= link_to "Category manage", admin_categories_path, class: "dropdown-item" %>
+              <%= link_to "User manage", "#", class: "dropdown-item" %>
+            <% end %>
           </div>
         </li>
+
       <% else %>
         <li class="nav-item">
           <%= link_to "Sign_up", new_user_path, class: "nav-link"%>

@@ -17,4 +17,6 @@ module SessionsHelper
 		flash[:danger] = "Successfully Logged out!"
 	end
 
+	
+
 end
