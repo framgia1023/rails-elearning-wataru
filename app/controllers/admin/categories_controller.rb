@@ -1,5 +1,8 @@
 class Admin::CategoriesController < ApplicationController
 
+	before_action :require_admin
+
+
 	def new
 		@category = Category.new
 	end
@@ -39,6 +42,10 @@ class Admin::CategoriesController < ApplicationController
 	     redirect_to admin_categories_path
 	end
 
+	def show
+
+	end
+
 
 	private
 
@@ -46,6 +53,8 @@ class Admin::CategoriesController < ApplicationController
 	    params.require(:category).permit(:title, :description)
 	  end
 
-
+	  def require_admin
+    	redirect_to root_url unless current_user.admin?
+	  end
 
 end

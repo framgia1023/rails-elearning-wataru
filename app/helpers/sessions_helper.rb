@@ -17,4 +17,10 @@ module SessionsHelper
 		flash[:danger] = "Successfully Logged out!"
 	end
 
+	def admin_user
+		User.find_by(id: session[:user_id])
+	end
+
+	
+
 end
