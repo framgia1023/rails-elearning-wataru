@@ -21,9 +21,9 @@
 	  <tbody>
 		<% @categories.each do |category| %>
 	    <tr>
-	      <th scope="row"><%= category.title %></th>
+	      <th scope="row"><%= link_to category.title, admin_category_words_path(category.id), class: "" %></th>
 	      <td><%=  category.description %></td>
-	      <td><%#= learned.count %></td>
+	      <td><%= link_to "word.count", new_admin_category_word_path(category.id), class: "" %></td>
 	      <td>
 	      	<%= link_to "Edit", edit_admin_category_path(category.id), class: "btn btn-outline-success btn-block" %>
 			<%= link_to "Remove", admin_category_path(category.id), method: :delete, class: "btn btn-outline-danger btn-block" %>
