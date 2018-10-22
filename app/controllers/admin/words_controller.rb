@@ -39,9 +39,9 @@ class Admin::WordsController < ApplicationController
 		@word = Word.find(params[:id])
 		if @word.update_attributes(word_params)
 		   flash[:success] = "Update successfully"
-		   redirect_to admin_category_words_path(@category.id)
+		   redirect_to admin_category_words_path(@category.id)	     
 		else
-		　　render "edit"
+		   render "edit"
 		end
 	end
 

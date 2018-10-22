@@ -5,11 +5,12 @@ class Admin::ChoicesController < ApplicationController
 	end
 
 	def create
-		@choice = Choice.new(choice_params)
-	
+		@choice = Choice.new(choice_params)	
 	end
 
-	
+	def index
+		@choices = Choice.find(choice_params)
+	end	
 
 	def edit
 		@choices = Choice.find(choice_params)

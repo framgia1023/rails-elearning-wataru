@@ -13,6 +13,7 @@
 	  <thead>
 	  	<tr>
 	      <th scope="col">Word</th>
+	      <th scope="col">Answer</th>
 	      <th scope="col">Action</th>
 	    </tr>
 	  </thead>
@@ -23,7 +24,7 @@
 	    <tr>
 	      <th scope="row"><%= link_to word.content, admin_category_words_path(@category.id), class: "" %></th>
 	  
-		  <td><%=  "answer" %></td>
+		  <td><%=  word.correct_params.content %></td>
 	      
 	      <td>
 	      	<%= link_to "Edit", edit_admin_category_word_path(@category.id, word.id), class: "btn btn-outline-success btn-block" %>

@@ -15,7 +15,8 @@
 				<div class="form-group">
 					<h3 class="mt-2 pt-2"><%= c.label :choices %></h3>
 						<%= c.text_field :content, class: "form-control", placeholder: "Enter choice word" %>
-						<%= c.check_box :correct %>
+						
+						<%= c.check_box :correct, class: "checked" %>
 				</div>
 			<% end %>	
 
