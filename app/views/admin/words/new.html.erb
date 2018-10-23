@@ -1,0 +1,28 @@
+<div class="row">
+	<h1 class="col-lg-6 mx-5">Create Word</h1>
+
+
+	<div class="col-lg-5 offset-3">
+		<%= form_for [:admin, @category, @word] do |f| %>
+		<%= render "shared/error", object: f.object %>
+			<div class="form-group">	
+				<h3><%= f.label :Word %></h3>
+					<%= f.text_field :content, class: "form-control", placeholder: "Enter category word" %>
+			</div>
+		
+			<%= f.fields_for :choices do |c| %>
+
+				<div class="form-group">
+					<h3 class="mt-2 pt-2"><%= c.label :choices %></h3>
+						<%= c.text_field :content, class: "form-control", placeholder: "Enter choice word" %>
+						
+						<%= c.check_box :correct, class: "checked" %>
+				</div>
+			<% end %>	
+
+			<div class="form-group">
+				<%= f.submit "Create", class: "btn btn-outline-primary btn-block"%>
+			</div>
+		<% end %>
+	</div>
+</div>

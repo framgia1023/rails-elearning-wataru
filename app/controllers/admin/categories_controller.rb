@@ -38,7 +38,7 @@ class Admin::CategoriesController < ApplicationController
 	def destroy
 		 category = Category.find(params[:id])
 	     category.destroy
-	     flash[:danger] = "Sucessfully deleted category!" 
+	     flash[:danger] = "Sucessfully deleted word!" 
 	     redirect_to admin_categories_path
 	end
 

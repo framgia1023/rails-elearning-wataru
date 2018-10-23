@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col-lg-6 offset-1">
+		<h1>Edit Word</h1>
+	</div>
+	<div class="col-lg-2 offset-2 mx-5">
+		<%= link_to "back", admin_categories_path, class: "btn btn-outline-primary btn-block" %>
+	</div>
+</div>
+
+	<div class="col-lg-5 offset-3">
+		<%= form_for [:admin, @category, @word] do |f| %>
+		<%= render "shared/error", object: f.object %>
+			<div class="form-group">	
+				<h3><%= f.label :Word %></h3>
+					<%= f.text_field :content, class: "form-control", placeholder: "Enter category word" %>
+			</div>
+		
+			<%= f.fields_for :choices do |c| %>
+
+				<div class="form-group">
+					<h3 class="mt-2 pt-2"><%= c.label :choices %></h3>
+						<%= c.text_field :content, class: "form-control", placeholder: "Enter choice word" %>
+						<%= c.check_box :correct %>
+				</div>
+			<% end %>	
+
+			<div class="form-group">
+				<%= f.submit "Update", class: "btn btn-outline-success btn-block"%>
+			</div>
+		<% end %>
+	</div>
