@@ -22,7 +22,7 @@
 
 		<% @words.each do |word| %>
 	    <tr>
-	      <th scope="row"><%= link_to word.content, admin_category_words_path(@category.id), class: "" %></th>
+	      <th scope="row"><%= word.content %></th>
 	  
 		  <td><%=  word.correct_params.content %></td>
 	      

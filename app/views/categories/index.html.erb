@@ -4,15 +4,27 @@
 	</div>
 	
 
-	<% @categories.each do |category| %>
+	<% @categories.each do |c| %>
 		<div class="jumbotron col-lg-5 mx-5">
-		  <h1><%= category.title %></h1>
-		  <p><%= category.description %></p>
+		  <h1><%= c.title %></h1>
+		  <p><%= c.description %></p>
+		
+			<%= form_for (@lesson) do |l| %>
+				<div class="form-group">
+					<%= hidden_field_tag :user_id, current_user.id %>
+					<%= hidden_field_tag :category_id, c.id %>
 
-		  <%= link_to "Learn", "#", class: "btn btn-primary btn-lg float-right" %>
+					<% if show_result(c) %>
+						<%= l.submit "Result show",class: "btn btn-primary btn-lg float-right" %>
+					<% else %>
+						<%= l.submit "Learn",class: "btn btn-primary btn-lg float-right" %>
+					<% end %>
 
+				</div>
+			<% end %>
 		</div>
 	<% end %>
+
 	<div class="container paginate text-center">
 		<%= will_paginate %>
 	</div>

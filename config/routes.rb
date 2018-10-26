@@ -7,10 +7,16 @@ Rails.application.routes.draw do
   	resources :choices
   end
 
+resources :lessons do
+	resources :answers
+end
+
 resources :users
 resources :sessions, only: [:new, :create, :destroy]
 resources :relationships, only:[:create, :destroy]
 resources :categories
+
+
 
 root 'static_pages#home'
 

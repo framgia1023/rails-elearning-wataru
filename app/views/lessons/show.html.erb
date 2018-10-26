@@ -1,0 +1,45 @@
+<div class="row">
+	<div class="col-lg-5 offset-1">	
+		<h1>Result</h1>
+	</div>
+
+	<div class="col-lg-6 text-center">
+		<h1><%= @lesson.correct.size %> of <%= @category.words.size %></h1>
+	</div>
+
+
+	<table class="table table-striped mx-5">
+	  <thead>
+	  	<tr>
+	      <th scope="col">word</th>
+	      <th scope="col">Correct Answer</th>
+	      <th scope="col">Answer</th> 
+	      <th scope="col">Result</th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	  	<% @answers.each do |answer| %>
+	    <tr>
+	      
+	      <td><%= answer.word.content %></td>
+		  <td><%= answer.word.correct_params.content %></td> 
+		  <td><%= answer.choice.content %></td>
+
+		 <% if answer.choice.correct == true%>
+		 	<td>
+		 		<i class="fas fa-check"><%=  %></i>
+		 	</td>
+		 <% else %>
+			<td>
+				<i class="fas fa-times"><%=  %></i>
+			</td>
+		 <% end %>
+		 
+
+	    </tr>
+	    <% end %>	
+	  </tbody>
+
+	</table>
+</div>

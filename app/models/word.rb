@@ -1,11 +1,11 @@
 class Word < ApplicationRecord
 
 	has_many :choices, dependent: :destroy
-	has_many :answer, dependent: :destroy
+	has_many :answers, dependent: :destroy
+	has_many :lessons, through: :answers
 	belongs_to :category
 	accepts_nested_attributes_for :choices
 	validate :one_collect
-
 	validates :content, presence: true
 
 	def correct_params
